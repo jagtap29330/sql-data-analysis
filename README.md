@@ -15,6 +15,11 @@ This repository contains SQL-based data analysis projects demonstrating real-wor
 
 Analyzes sales performance by product category using joins, CTEs, and ranking functions to support data-driven decisions.
 
+**Business Impact:**
+- Identifies top-performing product categories
+- Supports data-driven revenue decisions
+
+
 ### Customer KPI Analysis
 **File:** `customer_kpi.sql`
 
