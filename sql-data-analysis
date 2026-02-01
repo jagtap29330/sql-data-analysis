@@ -1,0 +1,23 @@
+-- Sales Analysis using SQL
+-- Objective: Analyze sales performance using joins, CTEs, and window functions
+
+WITH sales_cte AS (
+    SELECT 
+        o.order_id,
+        o.order_date,
+        c.customer_name,
+        p.product_name,
+        p.category,
+        o.quantity,
+        o.quantity * p.price AS sales_amount
+    FROM orders o
+    JOIN customers c ON o.customer_id = c.customer_id
+    JOIN products p ON o.product_id = p.product_id
+)
+
+SELECT
+    category,
+    SUM(sales_amount) AS total_sales,
+    RANK() OVER (ORDER BY SUM(sales_amount) DESC) AS sales_rank
+FROM sales_cte
+GROUP BY category;
